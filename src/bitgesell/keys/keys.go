@@ -1,6 +1,6 @@
 package keys
 
-import "github.com/in3rsha/bitgesell-utxo-dump/bitcoin/crypto"
+import "github.com/BitgesellOfficial/bitgesell-utxo-dump/src/bitgesell/crypto"
 import "github.com/akamensky/base58"
 import "math/big"
 

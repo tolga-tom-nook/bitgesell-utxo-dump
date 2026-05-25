@@ -1,9 +1,9 @@
 package main
 
 
-import "github.com/naftalimurgor/bitgesell-utxo-dump/src/bitgesell/bglleveldb" // chainstate leveldb decoding functions
-import "github.com/naftalimurgor/bitgesell-utxo-dump/src/bitgesell/keys"   // bitcoin addresses
-import "github.com/naftalimurgor/bitgesell-utxo-dump/src/bitgesell/bech32" // segwit bitcoin addresses
+import btcleveldb "github.com/BitgesellOfficial/bitgesell-utxo-dump/src/bitgesell/bglleveldb" // chainstate leveldb decoding functions
+import "github.com/BitgesellOfficial/bitgesell-utxo-dump/src/bitgesell/keys"   // bitcoin addresses
+import "github.com/BitgesellOfficial/bitgesell-utxo-dump/src/bitgesell/bech32" // segwit bitcoin addresses
 
 import "github.com/syndtr/goleveldb/leveldb" // go get github.com/syndtr/goleveldb/leveldb
 import "github.com/syndtr/goleveldb/leveldb/opt" // set no compression when opening leveldb
@@ -61,10 +61,10 @@ func main() {
     // Linux standard is already 4096 which is also "max" for more edit etc/security/limits.conf
 	if runtime.GOOS == "darwin" {
         cmd2 := exec.Command("ulimit", "-n", "4096")
-        fmt.Println("setting ulimit 4096\n")
+        fmt.Println("setting ulimit 4096")
         _, err := cmd2.Output()
         if err != nil {
-            fmt.Println("setting new ulimit failed with %s\n", err)
+            fmt.Printf("setting new ulimit failed with %s\n", err)
         }
         defer exec.Command("ulimit", "-n", "1024")
 	}
